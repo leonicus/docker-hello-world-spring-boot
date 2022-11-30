@@ -48,11 +48,10 @@ public class MemoryLeakNoOOMDemo {
                         + Runtime.getRuntime().totalMemory() / (1024 * 1024)
                         + " (mb), free: "
                         + Runtime.getRuntime().freeMemory() / (1024 * 1024) );
-                IODemo demo = new IODemo();
-                demo.start();
-                Thread.sleep(10000);
-                System.out.println("sleeping!");
-                IODemo.stop();
+                IOThread iothread = new IOThread ("fileIO-" + counter + ".txt");
+                iothread.start();
+                Thread.sleep(1000);
+                iothread.stop();
                 continue;
             }
 
@@ -78,4 +77,3 @@ public class MemoryLeakNoOOMDemo {
         }
     }
 }
-
