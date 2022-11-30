@@ -41,9 +41,7 @@ public class MemoryLeakNoOOMDemo {
              + Runtime.getRuntime().freeMemory() / (1024 * 1024) );
              }*/
 
-            if ( ((Runtime.getRuntime().maxMemory() - Runtime.getRuntime().totalMemory()) < 100 * 1024 * 1024)
-                    &&
-                    Runtime.getRuntime().freeMemory() < 50 * 1024 * 1024) {
+            if  ((Runtime.getRuntime().maxMemory() - Runtime.getRuntime().totalMemory()) < 100 * 1024 * 1024) {
                 Thread.sleep(1000);
                 System.out.println("sleeping!");
                 System.out.println("max: " + Runtime.getRuntime().maxMemory() / (1024 * 1024)
@@ -77,3 +75,4 @@ public class MemoryLeakNoOOMDemo {
         }
     }
 }
+
